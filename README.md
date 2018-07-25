@@ -2,9 +2,13 @@
 Automating linux processes using bash scripts
 
 ### wifi-crack.sh
-* The wordlist (`rockyou.txt`) is supposed to be at `/usr/share/wordlists/`
-* Wireless interface name is supposed to be `wlan0` by default
-* Automatically detects operating mode of the wireless interface  
+* Autodetects wireless interface name
+* Automatically detects operating mode of the wireless interface 
+* Wordlist path is `/usr/share/wordlists/rockyou.txt` by default (can be changed with `-w` option)  
 
-`$ chmod +x wifi-crack.sh`  
-`$ sudo ./wifi-crack.sh`
+Usage:
+`
+$ chmod +x wifi-crack.sh
+$ sudo ./wifi-crack.sh
+$ sudo ./wifi-crack.sh -w /path/to/wordlist.txt"
+`
