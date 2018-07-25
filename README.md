@@ -2,7 +2,7 @@
 Automating linux processes using bash scripts
 
 ### wifi-crack.sh  
-- Brute force wireless passwords using `aircrack-ng`  
+- Brute force wireless passwords using `aircrack-ng`
 * Offers force client deauthentication
 * Autodetects wireless interface name
 * Automatically detects operating mode of the wireless interface 
