@@ -7,8 +7,6 @@ Automating linux processes using bash scripts
 * Wordlist path is `/usr/share/wordlists/rockyou.txt` by default (can be changed with `-w` option)  
 
 Usage:
-`
-$ chmod +x wifi-crack.sh
-$ sudo ./wifi-crack.sh
-$ sudo ./wifi-crack.sh -w /path/to/wordlist.txt"
-`
+`$ chmod +x wifi-crack.sh`  
+`$ sudo ./wifi-crack.sh`  
+`$ sudo ./wifi-crack.sh -w /path/to/wordlist.txt"`
