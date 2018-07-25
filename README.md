@@ -6,7 +6,7 @@ Automating linux processes using bash scripts
 * Automatically detects operating mode of the wireless interface 
 * Wordlist path is `/usr/share/wordlists/rockyou.txt` by default (can be changed with `-w` option)  
 
-Usage:
+Usage:  
 `$ chmod +x wifi-crack.sh`  
 `$ sudo ./wifi-crack.sh`  
 `$ sudo ./wifi-crack.sh -w /path/to/wordlist.txt"`
