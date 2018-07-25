@@ -1,7 +1,9 @@
 # ProcessAutomatization
 Automating linux processes using bash scripts
 
-### wifi-crack.sh
+### wifi-crack.sh  
+- Brute force wireless passwords using `aircrack-ng`  
+* Offers force client deauthentication
 * Autodetects wireless interface name
 * Automatically detects operating mode of the wireless interface 
 * Wordlist path is `/usr/share/wordlists/rockyou.txt` by default (can be changed with `-w` option)  
