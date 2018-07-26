@@ -17,3 +17,10 @@ Disable monitoring mode and just in case kill any background process running `ai
 `$ sudo pkill aircrack-ng`  
 `$ sudo airmon-ng stop wlan0mon`  
 `$ sudo service network-manager restart`
+
+### arp-spoof-detect.sh  
+* Determines wether you are an ARP spoofing targeted or no (by unique sorting ARP table)  
+* If ARP spoofing is detected, script offers bringning down internet interfaces
+
+Usage:  
+`$ ./arp-spoof-detect.sh`
