@@ -11,7 +11,7 @@ Automating linux processes using bash scripts
 Usage:  
 `$ chmod +x wifi-crack.sh`  
 `$ sudo ./wifi-crack.sh`  
-`$ sudo ./wifi-crack.sh -w /path/to/wordlist.txt"`
+`$ sudo ./wifi-crack.sh -w /path/to/wordlist.txt`
 
 Disable monitoring mode and just in case kill any background process running `aircrack-ng`:  
 `$ sudo pkill aircrack-ng`  
