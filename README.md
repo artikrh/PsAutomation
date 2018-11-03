@@ -24,3 +24,9 @@ Disable monitoring mode and just in case kill any background process running `ai
 
 Usage:  
 `$ ./arp-spoof-detect.sh`
+
+### procmon.sh
+* A simple script in bash to continuously monitor system processes
+
+Usage:  
+`$ ./procmon.sh`
