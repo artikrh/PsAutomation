@@ -54,7 +54,7 @@ $ cat file.txt | copy
 ```
 
 ### Python SimpleHTTPServer
-* The word `simple` servers a simple web server from the python module and prints `http://ip:port/` for convenience
+* The word `simple` serves a simple web server from the python module and prints `http://ip:port/` for convenience
 
 ```
 $ alias simple='ip r show | grep src | cut -d " " -f 9 | sed -e "s/^/http:\/\//" | sed "s/$/:8080\//" && python -m SimpleHTTPServer 8080'      
