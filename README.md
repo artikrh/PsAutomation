@@ -47,6 +47,7 @@ $ virustotal.py file.ext
 
 ### Easy copy
 * Requires `xclip` which can be installed from `apt`
+* In the following case, the content of `file.txt` gets copied into the system clipboard
 
 ```
 $ alias copy='xclip -selection c'
