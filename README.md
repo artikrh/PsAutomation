@@ -1,5 +1,5 @@
 # ProcessAutomatization
-Automating linux processes using bash scripts
+Automating linux processes using python/bash scripts
 
 ### wifi-crack.sh  
 * Brute force wireless passwords using `aircrack-ng`
@@ -30,3 +30,14 @@ Usage:
 
 Usage:  
 `$ ./procmon.sh`
+
+### virustotal.py
+* A simple python script which accepts an executable file as input argument and then communicates with VirusTotal API to check whether that file has been scanned (if yes, provide results from different AVs)
+* Requires a valid [VirusTotal API](https://developers.virustotal.com/reference) key to work
+
+Usage:  
+```
+$ chmod +x virustotal.py 
+$ sudo mv virustotal.py /bin
+$ virustotal.py file.ext
+```
