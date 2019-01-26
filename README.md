@@ -41,3 +41,35 @@ $ chmod +x virustotal.py
 $ sudo mv virustotal.py /bin
 $ virustotal.py file.ext
 ```
+
+
+## Helpful aliases
+
+### Easy copy
+* Requires `xclip` which can be installed from `apt`
+
+```
+$ alias copy='xclip -selection c'
+$ cat file.txt | copy
+```
+
+### Python SimpleHTTPServer
+* The word `simple` servers a simple web server from the python module and prints `http://ip:port/` for convenience
+
+```
+$ alias simple='ip r show | grep src | cut -d " " -f 9 | sed -e "s/^/http:\/\//" | sed "s/$/:8080\//" && python -m SimpleHTTPServer 8080'      
+$ simple
+http://10.10.13.50:8080/
+http://192.168.0.12:8080/
+Serving HTTP on 0.0.0.0 port 8080 ...
+```
+
+### Quickly show IP
+* Show IPv4 address for X network interface without going through the whole `ifconfig` or `ifconfig <netiface>` output
+* The following shows the IPv4 address of the VPN network interface `tun0`
+
+```
+$ alias tun0='ifconfig tun0 | grep inet | head -1 | xargs | cut -d " " -f 2'
+$ tun0
+10.10.13.50
+```
