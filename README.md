@@ -19,8 +19,8 @@ Disable monitoring mode and just in case kill any background process running `ai
 `$ sudo service network-manager restart`
 
 ### arp-spoof-detect.sh  
-* Determines wether you are an ARP spoofing targete or no by unique sorting ARP table  
-* If ARP spoofing is detected, script offers bringning down internet interfaces
+* Determines wether you are an ARP spoofing target by unique sorting ARP table  
+* If ARP spoofing is detected, script offers terminating the network interface
 
 Usage:  
 `$ ./arp-spoof-detect.sh`
