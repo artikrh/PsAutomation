@@ -41,7 +41,13 @@ $ chmod +x virustotal.py
 $ sudo mv virustotal.py /bin
 $ virustotal.py file.ext
 ```
+### align.sh
+* A simple script in bash to automatically align windows frame size to a custom set of coordinates
+* The following resizes my terminal (has `zsh` in title) and Chromium browser (has `Chromium` in title)
+* You can add/remove arbitrary windows and `-e` coordinates (gravity, x, y, w, h)
 
+Usage:  
+`$ ./align.sh`
 
 ## Helpful aliases
 
