@@ -49,6 +49,13 @@ $ virustotal.py file.ext
 Usage:  
 `$ ./align.sh`
 
+### nmap-visualize.sh
+* Converts nmap's XML (`-oX` or `-oA`) file to HTML using a bootstrap XSL file for visualization
+* Automatically opens a new tab in browser with the output HTML file to review the content
+
+Usage:  
+`$ ./nmap-visualize.sh /path/to/nmap-file.xml`
+
 ## Helpful aliases
 
 ### Easy copy
